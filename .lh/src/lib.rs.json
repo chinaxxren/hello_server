@@ -1,0 +1,702 @@
+{
+    "sourceFile": "src/lib.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 171,
+            "patches": [
+                {
+                    "date": 1730208491181,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1730208502918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-pub \n\\ No newline at end of file\n+pub mod Thread\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208523439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-pub mod Thread\n\\ No newline at end of file\n+pub mod ThreadPool;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208533004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-pub mod ThreadPool;\n\\ No newline at end of file\n+pub str ThreadPool;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208539192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-pub str ThreadPool;\n\\ No newline at end of file\n+pub struct ThreadPool;\n"
+                },
+                {
+                    "date": 1730208559917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n pub struct ThreadPool;\n+\n+im\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208567120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n pub struct ThreadPool;\n \n-im\n\\ No newline at end of file\n+impl ThreadPool {\n+    f\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208577206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n pub struct ThreadPool;\n \n impl ThreadPool {\n-    f\n+    fn new() ->  {\n+        \n+    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208584806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n pub struct ThreadPool;\n \n impl ThreadPool {\n-    fn new() ->  {\n-        \n+    fn new() -> Self {\n+        ThreadPool\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208589883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n pub struct ThreadPool;\n \n impl ThreadPool {\n     fn new() -> Self {\n-        ThreadPool\n+        ThreadPool {}\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208595857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n pub struct ThreadPool;\n \n impl ThreadPool {\n-    fn new() -> Self {\n+    pub fn new() -> Self {\n         ThreadPool {}\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208637472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,11 @@\n impl ThreadPool {\n     pub fn new() -> Self {\n         ThreadPool {}\n     }\n+\n+    pub fn execute<F>(&self, f: F)\n+    where\n+        F: FnOnce() + Send + 'static,\n+    {\n+    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208680377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n-pub struct ThreadPool;\n+pub struct ThreadPool {\n+    threads\n+}\n \n impl ThreadPool {\n     pub fn new() -> Self {\n         ThreadPool {}\n"
+                },
+                {
+                    "date": 1730208686946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n pub struct ThreadPool {\n-    threads\n+    threads: \n }\n \n impl ThreadPool {\n     pub fn new() -> Self {\n"
+                },
+                {
+                    "date": 1730208696607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n pub struct ThreadPool {\n-    threads: \n+    threads: Vec<std::thread::JoinHandle<()>\n }\n \n impl ThreadPool {\n     pub fn new() -> Self {\n"
+                },
+                {
+                    "date": 1730208738883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n pub struct ThreadPool {\n-    threads: Vec<std::thread::JoinHandle<()>\n+    threads: Vec<std::thread::JoinHandle<()>>,\n }\n \n impl ThreadPool {\n     pub fn new() -> Self {\n"
+                },
+                {
+                    "date": 1730208754351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     threads: Vec<std::thread::JoinHandle<()>>,\n }\n \n impl ThreadPool {\n-    pub fn new() -> Self {\n+    pub fn new(n: usize) -> Self {\n         ThreadPool {}\n     }\n \n     pub fn execute<F>(&self, f: F)\n"
+                },
+                {
+                    "date": 1730208762036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,11 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n-        ThreadPool {}\n+        ThreadPool {\n+            t\n+        }\n     }\n \n     pub fn execute<F>(&self, f: F)\n     where\n"
+                },
+                {
+                    "date": 1730208768672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         ThreadPool {\n-            t\n+            threads = Ve\n         }\n     }\n \n     pub fn execute<F>(&self, f: F)\n"
+                },
+                {
+                    "date": 1730208774576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         ThreadPool {\n-            threads = Ve\n+            threads = Vec::with_capacity(n),\n         }\n     }\n \n     pub fn execute<F>(&self, f: F)\n"
+                },
+                {
+                    "date": 1730208816383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         ThreadPool {\n-            threads = Vec::with_capacity(n),\n+            let Vec::with_capacity(n),\n         }\n     }\n \n     pub fn execute<F>(&self, f: F)\n"
+                },
+                {
+                    "date": 1730208822603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,11 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n+        let Vec::with_capacity(n)；\n         ThreadPool {\n-            let Vec::with_capacity(n),\n+            \n         }\n     }\n \n     pub fn execute<F>(&self, f: F)\n"
+                },
+                {
+                    "date": 1730208838147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n-        let Vec::with_capacity(n)；\n+        let Vec::with_capacity(n)\n         ThreadPool {\n             \n         }\n     }\n"
+                },
+                {
+                    "date": 1730208843398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n-        let Vec::with_capacity(n)\n+        let thVec::with_capacity(n);\n         ThreadPool {\n             \n         }\n     }\n"
+                },
+                {
+                    "date": 1730208848614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n-        let thVec::with_capacity(n);\n+        let threads =Vec::with_capacity(n);\n         ThreadPool {\n             \n         }\n     }\n"
+                },
+                {
+                    "date": 1730208858495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n         ThreadPool {\n-            \n+            threads\n         }\n     }\n \n     pub fn execute<F>(&self, f: F)\n"
+                },
+                {
+                    "date": 1730208868623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,11 @@\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n+        for _ in \n         ThreadPool {\n-            threads\n+            threads,\n         }\n     }\n \n     pub fn execute<F>(&self, f: F)\n"
+                },
+                {
+                    "date": 1730208874410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,12 @@\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n-        for _ in \n+        for _ in threads {\n+            \n+        }\n+        \n         ThreadPool {\n             threads,\n         }\n     }\n"
+                },
+                {
+                    "date": 1730208887558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n-        for _ in threads {\n+        for _ in 0 {\n             \n         }\n         \n         ThreadPool {\n"
+                },
+                {
+                    "date": 1730208893947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,13 @@\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n-        for _ in 0 {\n+        for _ in 0..n {\n+            threads.push(std::thread::spawn(|| {\n+                println!(\"Hello from thread!\");\n+            }));\n+        } {\n             \n         }\n         \n         ThreadPool {\n"
+                },
+                {
+                    "date": 1730208908565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,13 +5,9 @@\n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n         for _ in 0..n {\n-            threads.push(std::thread::spawn(|| {\n-                println!(\"Hello from thread!\");\n-            }));\n-        } {\n-            \n+   \n         }\n         \n         ThreadPool {\n             threads,\n"
+                },
+                {
+                    "date": 1730208954217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+\n+\n pub struct ThreadPool {\n     threads: Vec<std::thread::JoinHandle<()>>,\n }\n \n"
+                },
+                {
+                    "date": 1730208960277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n+pub st\n \n-\n pub struct ThreadPool {\n     threads: Vec<std::thread::JoinHandle<()>>,\n }\n \n"
+                },
+                {
+                    "date": 1730208971270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n-pub st\n+pub struct Work {\n+    \n+}\n \n pub struct ThreadPool {\n     threads: Vec<std::thread::JoinHandle<()>>,\n }\n"
+                },
+                {
+                    "date": 1730208993880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n pub struct Work {\n-    \n+    id\n }\n \n pub struct ThreadPool {\n     threads: Vec<std::thread::JoinHandle<()>>,\n"
+                },
+                {
+                    "date": 1730209002823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n pub struct Work {\n-    id\n+    id: usize,\n+    \n }\n \n pub struct ThreadPool {\n     threads: Vec<std::thread::JoinHandle<()>>,\n"
+                },
+                {
+                    "date": 1730209008023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n pub struct Work {\n     id: usize,\n-    \n+    thread:\n }\n \n pub struct ThreadPool {\n     threads: Vec<std::thread::JoinHandle<()>>,\n"
+                },
+                {
+                    "date": 1730209015105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,13 @@\n pub struct Work {\n     id: usize,\n-    thread:\n+    thread: std::thread::JoinHandle<()>,\n }\n \n+impl  {\n+    \n+}\n+\n pub struct ThreadPool {\n     threads: Vec<std::thread::JoinHandle<()>>,\n }\n \n"
+                },
+                {
+                    "date": 1730209034853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n     id: usize,\n     thread: std::thread::JoinHandle<()>,\n }\n \n-impl  {\n-    \n+impl Work {\n+    pu\n }\n \n pub struct ThreadPool {\n     threads: Vec<std::thread::JoinHandle<()>>,\n"
+                },
+                {
+                    "date": 1730209040967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,11 @@\n     thread: std::thread::JoinHandle<()>,\n }\n \n impl Work {\n-    pu\n+    pub fn new(id: usize) -> Self {\n+        \n+    }\n }\n \n pub struct ThreadPool {\n     threads: Vec<std::thread::JoinHandle<()>>,\n"
+                },
+                {
+                    "date": 1730209073463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,14 @@\n }\n \n impl Work {\n     pub fn new(id: usize) -> Self {\n+        Work {\n+            id,\n+            thread: std::thread::spawn(|| {\n         \n+            }),\n+        }\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730209082098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,16 +7,16 @@\n     pub fn new(id: usize) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {\n-        \n+    \n             }),\n         }\n     }\n }\n \n pub struct ThreadPool {\n-    threads: Vec<std::thread::JoinHandle<()>>,\n+    threads: Vec<W>,\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730209740312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     }\n }\n \n pub struct ThreadPool {\n-    threads: Vec<W>,\n+    threads: Vec<Work >,\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730209911990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,16 +14,16 @@\n     }\n }\n \n pub struct ThreadPool {\n-    threads: Vec<Work >,\n+    threads: Vec<Work>,\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n         for _ in 0..n {\n-   \n+            threads.\n         }\n         \n         ThreadPool {\n             threads,\n"
+                },
+                {
+                    "date": 1730209917339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n         for _ in 0..n {\n-            threads.\n+            threads.push(W);\n         }\n         \n         ThreadPool {\n             threads,\n"
+                },
+                {
+                    "date": 1730209940673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n-        for _ in 0..n {\n-            threads.push(W);\n+        for id in 0..n {\n+            threads.push(Work { id: (), thread: () });\n         }\n         \n         ThreadPool {\n             threads,\n"
+                },
+                {
+                    "date": 1730209954743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n-        for id in 0..n {\n-            threads.push(Work { id: (), thread: () });\n+        for id   in 0..n {\n+            threads.push(Work { id: id, thread: () });\n         }\n         \n         ThreadPool {\n             threads,\n"
+                },
+                {
+                    "date": 1730209964358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n         for id   in 0..n {\n-            threads.push(Work { id: id, thread: () });\n+            threads.push(Work { id: id, thread:  });\n         }\n         \n         ThreadPool {\n             threads,\n"
+                },
+                {
+                    "date": 1730209978921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n         for id   in 0..n {\n-            threads.push(Work { id: id, thread:  });\n+            threads.push(Work);\n         }\n         \n         ThreadPool {\n             threads,\n"
+                },
+                {
+                    "date": 1730209988821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n         for id   in 0..n {\n-            threads.push(Work);\n+            threads.push(Work::new(id)));\n         }\n         \n         ThreadPool {\n             threads,\n"
+                },
+                {
+                    "date": 1730209994915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n         let threads =Vec::with_capacity(n);\n         for id   in 0..n {\n-            threads.push(Work::new(id)));\n+            threads.push(Work::new(id));\n         }\n         \n         ThreadPool {\n             threads,\n"
+                },
+                {
+                    "date": 1730210004392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n-        let threads =Vec::with_capacity(n);\n+        let mut threads =Vec::with_capacity(n);\n         for id   in 0..n {\n             threads.push(Work::new(id));\n         }\n         \n"
+                },
+                {
+                    "date": 1730210211989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+\n+\n pub struct Work {\n     id: usize,\n     thread: std::thread::JoinHandle<()>,\n }\n"
+                },
+                {
+                    "date": 1730210222181,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+use std::sync::mpsc;\n \n \n pub struct Work {\n     id: usize,\n"
+                },
+                {
+                    "date": 1730210229586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::sync::mpsc;\n+use std::sync::{mpsc,T;\n \n \n pub struct Work {\n     id: usize,\n"
+                },
+                {
+                    "date": 1730210236292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-use std::sync::{mpsc,T;\n+use std::sync::mpsc;\n+use\n \n-\n pub struct Work {\n     id: usize,\n     thread: std::thread::JoinHandle<()>,\n }\n"
+                },
+                {
+                    "date": 1730210253003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n use std::sync::mpsc;\n-use\n+use std::thread;\n \n pub struct Work {\n     id: usize,\n-    thread: std::thread::JoinHandle<()>,\n+    thread: thread::JoinHandle<()>,\n }\n \n impl Work {\n     pub fn new(id: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730210260425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n }\n \n pub struct ThreadPool {\n     threads: Vec<Work>,\n+    \n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730210284297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n }\n \n pub struct ThreadPool {\n     threads: Vec<Work>,\n-    \n+    se\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730210290618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n }\n \n pub struct ThreadPool {\n     threads: Vec<Work>,\n-    se\n+    sender: mpsc::Sender<Work>,\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730210315854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n+        le\n         let mut threads =Vec::with_capacity(n);\n         for id   in 0..n {\n             threads.push(Work::new(id));\n         }\n"
+                },
+                {
+                    "date": 1730210322156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n-        le\n+        mp\n         let mut threads =Vec::with_capacity(n);\n         for id   in 0..n {\n             threads.push(Work::new(id));\n         }\n"
+                },
+                {
+                    "date": 1730210329379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n-        mp\n+        mpsc::channel();\n         let mut threads =Vec::with_capacity(n);\n         for id   in 0..n {\n             threads.push(Work::new(id));\n         }\n"
+                },
+                {
+                    "date": 1730210336794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n-        mpsc::channel();\n+        let (s)mpsc::channel();\n         let mut threads =Vec::with_capacity(n);\n         for id   in 0..n {\n             threads.push(Work::new(id));\n         }\n"
+                },
+                {
+                    "date": 1730210343335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(n: usize) -> Self {\n-        let (s)mpsc::channel();\n+        let (sender, receiver) = mpsc::channel();\n         let mut threads =Vec::with_capacity(n);\n         for id   in 0..n {\n             threads.push(Work::new(id));\n         }\n"
+                },
+                {
+                    "date": 1730210363457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     sender: mpsc::Sender<Work>,\n }\n \n impl ThreadPool {\n-    pub fn new(n: usize) -> Self {\n+    pub fn new(size: usize) -> Self {\n         let (sender, receiver) = mpsc::channel();\n         let mut threads =Vec::with_capacity(n);\n         for id   in 0..n {\n             threads.push(Work::new(id));\n"
+                },
+                {
+                    "date": 1730210369252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n         let (sender, receiver) = mpsc::channel();\n         let mut threads =Vec::with_capacity(n);\n-        for id   in 0..n {\n+        for id   in 0..size {\n             threads.push(Work::new(id));\n         }\n         \n         ThreadPool {\n"
+                },
+                {
+                    "date": 1730210375763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             threads.push(Work::new(id));\n         }\n         \n         ThreadPool {\n-            threads,\n+            threads,sender,\n         }\n     }\n \n     pub fn execute<F>(&self, f: F)\n"
+                },
+                {
+                    "date": 1730210385119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,9 @@\n impl Work {\n     pub fn new(id: usize) -> Self {\n         Work {\n             id,\n-            thread: std::thread::spawn(|| {\n-    \n-            }),\n+            thread: std::thread::spawn(|| {}),\n         }\n     }\n }\n \n@@ -24,20 +22,18 @@\n \n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n         let (sender, receiver) = mpsc::channel();\n-        let mut threads =Vec::with_capacity(n);\n-        for id   in 0..size {\n+        let mut threads = Vec::with_capacity(size);\n+        for id in 0..size {\n             threads.push(Work::new(id));\n         }\n-        \n-        ThreadPool {\n-            threads,sender,\n-        }\n+\n+        ThreadPool { threads, sender }\n     }\n \n     pub fn execute<F>(&self, f: F)\n     where\n\\ No newline at end of file\n         F: FnOnce() + Send + 'static,\n     {\n     }\n-}\n+}\n"
+                },
+                {
+                    "date": 1730210422509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n \n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n+    \n }\n \n impl Work {\n     pub fn new(id: usize) -> Self {\n@@ -35,5 +36,5 @@\n     where\n         F: FnOnce() + Send + 'static,\n     {\n     }\n-}\n\\ No newline at end of file\n+}\n"
+                },
+                {
+                    "date": 1730210428323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n-    \n+    receiver: mpsc::Receiver<()>,\n }\n \n impl Work {\n     pub fn new(id: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730210435374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     receiver: mpsc::Receiver<()>,\n }\n \n impl Work {\n-    pub fn new(id: usize) -> Self {\n+    pub fn new(id: usize,re) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n         }\n"
+                },
+                {
+                    "date": 1730210443391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     receiver: mpsc::Receiver<()>,\n }\n \n impl Work {\n-    pub fn new(id: usize,re) -> Self {\n+    pub fn new(id: usize,receive: ) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n         }\n"
+                },
+                {
+                    "date": 1730210448684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     receiver: mpsc::Receiver<()>,\n }\n \n impl Work {\n-    pub fn new(id: usize,receive: ) -> Self {\n+    pub fn new(id: usize,receive: mpsc::Receiver<()>) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n         }\n"
+                },
+                {
+                    "date": 1730210454903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n     pub fn new(id: usize,receive: mpsc::Receiver<()>) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n+            receiver\n         }\n     }\n }\n \n"
+                },
+                {
+                    "date": 1730210471026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,17 +7,17 @@\n     receiver: mpsc::Receiver<()>,\n }\n \n impl Work {\n-    pub fn new(id: usize,receive: mpsc::Receiver<()>) -> Self {\n+    pub fn new(id: usize, receive: mpsc::Receiver<()>) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n-            receiver\n+            receiver,\n         }\n     }\n }\n-\n+F\n pub struct ThreadPool {\n     threads: Vec<Work>,\n     sender: mpsc::Sender<Work>,\n }\n"
+                },
+                {
+                    "date": 1730210504524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n-    receiver: mpsc::Receiver<()>,\n+    receiver: mpsc::Receiver<W>,\n }\n \n impl Work {\n     pub fn new(id: usize, receive: mpsc::Receiver<()>) -> Self {\n@@ -15,9 +15,9 @@\n             receiver,\n         }\n     }\n }\n-F\n+\n pub struct ThreadPool {\n     threads: Vec<Work>,\n     sender: mpsc::Sender<Work>,\n }\n"
+                },
+                {
+                    "date": 1730210513249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,13 @@\n \n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n-    receiver: mpsc::Receiver<W>,\n+    receiver: mpsc::Receiver<Work>,\n }\n \n impl Work {\n-    pub fn new(id: usize, receive: mpsc::Receiver<()>) -> Self {\n+    pub fn new(id: usize, receive: mpsc::Receiver<Work>) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n             receiver,\n"
+                },
+                {
+                    "date": 1730210521869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     receiver: mpsc::Receiver<Work>,\n }\n \n impl Work {\n-    pub fn new(id: usize, receive: mpsc::Receiver<Work>) -> Self {\n+    pub fn new(id: usize, receiver: mpsc::Receiver<Work>) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n             receiver,\n"
+                },
+                {
+                    "date": 1730210530445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     pub fn new(size: usize) -> Self {\n         let (sender, receiver) = mpsc::channel();\n         let mut threads = Vec::with_capacity(size);\n         for id in 0..size {\n-            threads.push(Work::new(id));\n+            threads.push(Work::new(id,receiver));\n         }\n \n         ThreadPool { threads, sender }\n     }\n"
+                },
+                {
+                    "date": 1730210569570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     pub fn new(size: usize) -> Self {\n         let (sender, receiver) = mpsc::channel();\n         let mut threads = Vec::with_capacity(size);\n         for id in 0..size {\n-            threads.push(Work::new(id,receiver));\n+            threads.push(Work::new(id));\n         }\n \n         ThreadPool { threads, sender }\n     }\n"
+                },
+                {
+                    "date": 1730210625661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,10 @@\n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n         let (sender, receiver) = mpsc::channel();\n         let mut threads = Vec::with_capacity(size);\n+        \n+        let receiver = receiver;\n         for id in 0..size {\n             threads.push(Work::new(id));\n         }\n \n"
+                },
+                {
+                    "date": 1730210631843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     pub fn new(size: usize) -> Self {\n         let (sender, receiver) = mpsc::channel();\n         let mut threads = Vec::with_capacity(size);\n         \n-        let receiver = receiver;\n+        let receiver = Arc;\n         for id in 0..size {\n             threads.push(Work::new(id));\n         }\n \n"
+                },
+                {
+                    "date": 1730210646664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,11 +26,11 @@\n     pub fn new(size: usize) -> Self {\n         let (sender, receiver) = mpsc::channel();\n         let mut threads = Vec::with_capacity(size);\n         \n-        let receiver = Arc;\n+        let receiver = Arc::new(Mutex::new(receiver));\n         for id in 0..size {\n-            threads.push(Work::new(id));\n+            threads.push(Work::new(id,receiver.clone());\n         }\n \n         ThreadPool { threads, sender }\n     }\n"
+                },
+                {
+                    "date": 1730210654706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         let mut threads = Vec::with_capacity(size);\n         \n         let receiver = Arc::new(Mutex::new(receiver));\n         for id in 0..size {\n-            threads.push(Work::new(id,receiver.clone());\n+            threads.push(Work::new(id,receiver.clone()));\n         }\n \n         ThreadPool { threads, sender }\n     }\n"
+                },
+                {
+                    "date": 1730210670485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n use std::sync::mpsc;\n use std::thread;\n-\n+u\n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n     receiver: mpsc::Receiver<Work>,\n"
+                },
+                {
+                    "date": 1730210677907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n use std::sync::mpsc;\n use std::thread;\n-u\n+use std::sync::{Arc, Mutex};\n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n     receiver: mpsc::Receiver<Work>,\n"
+                },
+                {
+                    "date": 1730210711962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n-        let (sender, receiver) = mpsc::channel();\n+        let (sender, receiver) = mpsc::channel<>();\n         let mut threads = Vec::with_capacity(size);\n         \n         let receiver = Arc::new(Mutex::new(receiver));\n         for id in 0..size {\n"
+                },
+                {
+                    "date": 1730210746984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,14 +23,14 @@\n }\n \n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n-        let (sender, receiver) = mpsc::channel<>();\n+        let (sender, receiver) = mpsc::channel<Work>();\n         let mut threads = Vec::with_capacity(size);\n         \n         let receiver = Arc::new(Mutex::new(receiver));\n         for id in 0..size {\n-            threads.push(Work::new(id,receiver.clone()));\n+            threads.push(Work::new(id,));\n         }\n \n         ThreadPool { threads, sender }\n     }\n"
+                },
+                {
+                    "date": 1730210763868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,14 +23,14 @@\n }\n \n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n-        let (sender, receiver) = mpsc::channel<Work>();\n+        let (sender, receiver) = mpsc::channel::<Work>();\n         let mut threads = Vec::with_capacity(size);\n         \n         let receiver = Arc::new(Mutex::new(receiver));\n         for id in 0..size {\n-            threads.push(Work::new(id,));\n+            threads.push(Work::new(id,Arc::clone(&receiver)));\n         }\n \n         ThreadPool { threads, sender }\n     }\n"
+                },
+                {
+                    "date": 1730210909721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n use std::sync::mpsc;\n use std::thread;\n use std::sync::{Arc, Mutex};\n+struct Job;\n+\n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n     receiver: mpsc::Receiver<Work>,\n"
+                },
+                {
+                    "date": 1730210919524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,13 +5,13 @@\n \n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n-    receiver: mpsc::Receiver<Work>,\n+    receiver: mpsc::Receiver<Job>,\n }\n \n impl Work {\n-    pub fn new(id: usize, receiver: mpsc::Receiver<Work>) -> Self {\n+    pub fn new(id: usize, receiver: mpsc::Receiver<Job>) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n             receiver,\n@@ -25,9 +25,9 @@\n }\n \n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n-        let (sender, receiver) = mpsc::channel::<Work>();\n+        let (sender, receiver) = mpsc::channel::<Job>();\n         let mut threads = Vec::with_capacity(size);\n         \n         let receiver = Arc::new(Mutex::new(receiver));\n         for id in 0..size {\n"
+                },
+                {
+                    "date": 1730210931760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     receiver: mpsc::Receiver<Job>,\n }\n \n impl Work {\n-    pub fn new(id: usize, receiver: mpsc::Receiver<Job>) -> Self {\n+    pub fn new(id: usize, receiver: ) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n             receiver,\n"
+                },
+                {
+                    "date": 1730210936921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     receiver: mpsc::Receiver<Job>,\n }\n \n impl Work {\n-    pub fn new(id: usize, receiver: ) -> Self {\n+    pub fn new(id: usize, receiver) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n             receiver,\n"
+                },
+                {
+                    "date": 1730210951194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,13 +5,13 @@\n \n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n-    receiver: mpsc::Receiver<Job>,\n+    receiver: Arc<Mutex<mpsc::Receiver<Job>>>,\n }\n \n impl Work {\n-    pub fn new(id: usize, receiver) -> Self {\n+    pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n             receiver,\n"
+                },
+                {
+                    "date": 1730210975898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n }\n \n pub struct ThreadPool {\n     threads: Vec<Work>,\n-    sender: mpsc::Sender<Work>,\n+    sender: mpsc::Sender<Job>,\n }\n \n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730211094152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n use std::sync::mpsc;\n use std::thread;\n use std::sync::{Arc, Mutex};\n-struct Job;\n+type Job = Box<dyn FnOnce() + Send + 'static>;\n \n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n"
+                },
+                {
+                    "date": 1730211113891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n use std::sync::mpsc;\n use std::thread;\n use std::sync::{Arc, Mutex};\n+\n type Job = Box<dyn FnOnce() + Send + 'static>;\n \n pub struct Work {\n     id: usize,\n@@ -40,6 +41,7 @@\n     pub fn execute<F>(&self, f: F)\n     where\n         F: FnOnce() + Send + 'static,\n     {\n+        \n     }\n }\n"
+                },
+                {
+                    "date": 1730211122766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,7 +41,8 @@\n     pub fn execute<F>(&self, f: F)\n     where\n         F: FnOnce() + Send + 'static,\n     {\n-        \n+        let job = Box::new(f);\n+        self.sender.send(job).unwrap();\n     }\n }\n"
+                },
+                {
+                    "date": 1730211204868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n \n pub struct Work {\n     id: usize,\n     thread: thread::JoinHandle<()>,\n-    receiver: Arc<Mutex<mpsc::Receiver<Job>>>,\n }\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n@@ -42,7 +41,7 @@\n     where\n         F: FnOnce() + Send + 'static,\n     {\n         let job = Box::new(f);\n-        self.sender.send(job).unwrap();\n+        self.sender.send(job).unwrap(); \n     }\n }\n"
+                },
+                {
+                    "date": 1730211214658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,12 @@\n }\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n+        let thread\n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n-            receiver,\n         }\n     }\n }\n \n"
+                },
+                {
+                    "date": 1730211226399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,13 @@\n }\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n-        let thread\n+        let thread = thread::spawn(move || loop {\n+            let job = receiver.lock().unwrap().recv().unwrap();\n+            job();\n+        });\n+        \n         Work {\n             id,\n             thread: std::thread::spawn(|| {}),\n         }\n"
+                },
+                {
+                    "date": 1730211237499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         });\n         \n         Work {\n             id,\n-            thread: std::thread::spawn(|| {}),\n+            thread),\n         }\n     }\n }\n \n"
+                },
+                {
+                    "date": 1730211246308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         });\n         \n         Work {\n             id,\n-            thread),\n+            thread},\n         }\n     }\n }\n \n"
+                },
+                {
+                    "date": 1730211254256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,9 @@\n             let job = receiver.lock().unwrap().recv().unwrap();\n             job();\n         });\n         \n-        Work {\n-            id,\n+        Work {id,\n             thread},\n         }\n     }\n }\n"
+                },
+                {
+                    "date": 1730211262055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,9 @@\n             let job = receiver.lock().unwrap().recv().unwrap();\n             job();\n         });\n         \n-        Work {id,\n-            thread},\n+        Work {id, thread}；\n         }\n     }\n }\n \n"
+                },
+                {
+                    "date": 1730211272648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,9 @@\n             let job = receiver.lock().unwrap().recv().unwrap();\n             job();\n         });\n         \n-        Work {id, thread}；\n-        }\n+        Work {id, thread}\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730211322823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n type Job = Box<dyn FnOnce() + Send + 'static>;\n \n pub struct Work {\n     id: usize,\n-    thread: thread::JoinHandle<()>,\n+    pub(crate) thread: thread::JoinHandle<()>,\n }\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n"
+                },
+                {
+                    "date": 1730211335207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n type Job = Box<dyn FnOnce() + Send + 'static>;\n \n pub struct Work {\n     id: usize,\n-    pub(crate) thread: thread::JoinHandle<()>,\n+    handler: thread::JoinHandle<()>,\n }\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n@@ -15,9 +15,9 @@\n             let job = receiver.lock().unwrap().recv().unwrap();\n             job();\n         });\n         \n-        Work {id, thread}\n+        Work {id, handler: thread}\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730211342846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             let job = receiver.lock().unwrap().recv().unwrap();\n             job();\n         });\n         \n-        Work {id, handler: thread}\n+        Work {id, handler}\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730211498734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,11 @@\n }\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n-        let thread = thread::spawn(move || loop {\n+        let handler = thread::spawn(move || loop {\n             let job = receiver.lock().unwrap().recv().unwrap();\n+            println!(\"Worker {id} got a job; executing.\");\n             job();\n         });\n         \n         Work {id, handler}\n"
+                },
+                {
+                    "date": 1730211968242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            let job = receiver.lock().unwrap().recv().unwrap();\n+            let job = receiver.lock().unwrap.recv().unwrap();\n             println!(\"Worker {id} got a job; executing.\");\n             job();\n         });\n         \n"
+                },
+                {
+                    "date": 1730211974431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            let job = receiver.lock().unwrap.recv().unwrap();\n+            let job = receiver.lock().unwrap_or_else(op).recv().unwrap();\n             println!(\"Worker {id} got a job; executing.\");\n             job();\n         });\n         \n"
+                },
+                {
+                    "date": 1730212003264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            let job = receiver.lock().unwrap_or_else(op).recv().unwrap();\n+            let job = receiver.lock().recv().unwrap();\n             println!(\"Worker {id} got a job; executing.\");\n             job();\n         });\n         \n"
+                },
+                {
+                    "date": 1730212016755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,10 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            let job = receiver.lock().recv().unwrap();\n+            if let job = receiver.lock()\n+            .recv().unwrap();\n             println!(\"Worker {id} got a job; executing.\");\n             job();\n         });\n         \n"
+                },
+                {
+                    "date": 1730212022398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n             if let job = receiver.lock()\n-            .recv().unwrap();\n+            // .recv().unwrap();\n             println!(\"Worker {id} got a job; executing.\");\n             job();\n         });\n         \n"
+                },
+                {
+                    "date": 1730212030731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            if let job = receiver.lock()\n+            if let job = receiver.lock() {\n+                \n+            }\n             // .recv().unwrap();\n             println!(\"Worker {id} got a job; executing.\");\n             job();\n         });\n"
+                },
+                {
+                    "date": 1730212037889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n             if let job = receiver.lock() {\n-                \n+                let job = job.recv().unwrap();\n             }\n             // .recv().unwrap();\n             println!(\"Worker {id} got a job; executing.\");\n             job();\n"
+                },
+                {
+                    "date": 1730212049670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,12 +13,12 @@\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n             if let job = receiver.lock() {\n                 let job = job.recv().unwrap();\n+                job();\n             }\n-            // .recv().unwrap();\n             println!(\"Worker {id} got a job; executing.\");\n-            job();\n+            \n         });\n         \n         Work {id, handler}\n     }\n"
+                },
+                {
+                    "date": 1730212060202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,12 @@\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n             if let job = receiver.lock() {\n                 let job = job.recv().unwrap();\n+\n                 job();\n             }\n-            println!(\"Worker {id} got a job; executing.\");\n+\n             \n         });\n         \n         Work {id, handler}\n"
+                },
+                {
+                    "date": 1730212075384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            if let job = receiver.lock() {\n+            if let re = receiver.lock() {\n                 let job = job.recv().unwrap();\n \n                 job();\n             }\n"
+                },
+                {
+                    "date": 1730212086348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            if let re = receiver.lock() {\n-                let job = job.recv().unwrap();\n+            if let recr = receiver.lock() {\n+                let job = r.recv().unwrap();\n \n                 job();\n             }\n \n"
+                },
+                {
+                    "date": 1730212094703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n             if let recr = receiver.lock() {\n-                let job = r.recv().unwrap();\n+                let job = re.recv().unwrap();\n \n                 job();\n             }\n \n"
+                },
+                {
+                    "date": 1730212103008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            if let recr = receiver.lock() {\n-                let job = re.recv().unwrap();\n+            if let res = receiver.lock() {\n+                let job = res.recv().unwrap();\n \n                 job();\n             }\n \n"
+                },
+                {
+                    "date": 1730212170126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            if let res = receiver.lock() {\n+             let res = receiver.lock().unwrap() {\n                 let job = res.recv().unwrap();\n \n                 job();\n             }\n"
+                },
+                {
+                    "date": 1730212175511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,8 @@\n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n              let res = receiver.lock().unwrap() {\n-                let job = res.recv().unwrap();\n-\n-                job();\n             }\n \n             \n         });\n"
+                },
+                {
+                    "date": 1730212183686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,10 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-             let res = receiver.lock().unwrap() {\n+             let res = receiver.lock().unwrap();\n+             \n             }\n \n             \n         });\n"
+                },
+                {
+                    "date": 1730212190214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,11 @@\n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n              let res = receiver.lock().unwrap();\n-             \n+             if let Ok(job) = res.recv() {\n+                \n+             }\n             }\n \n             \n         });\n"
+                },
+                {
+                    "date": 1730212208527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,11 @@\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n              let res = receiver.lock().unwrap();\n              if let Ok(job) = res.recv() {\n-                \n+                 job();\n              }\n-            }\n+        \n \n             \n         });\n         \n"
+                },
+                {
+                    "date": 1730212214238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,8 @@\n              let res = receiver.lock().unwrap();\n              if let Ok(job) = res.recv() {\n                  job();\n              }\n-        \n-\n-            \n         });\n         \n         Work {id, handler}\n     }\n"
+                },
+                {
+                    "date": 1730212849937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,4 +47,8 @@\n         let job = Box::new(f);\n         self.sender.send(job).unwrap(); \n     }\n }\n+\n+impl  {\n+    \n+}\n"
+                },
+                {
+                    "date": 1730212856212,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,7 +48,7 @@\n         self.sender.send(job).unwrap(); \n     }\n }\n \n-impl  {\n+impl Drop for ThreadPool  {\n     \n }\n"
+                },
+                {
+                    "date": 1730212862556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,6 +49,8 @@\n     }\n }\n \n impl Drop for ThreadPool  {\n-    \n+    fn drop(&mut self) {\n+        for\n+    }\n }\n"
+                },
+                {
+                    "date": 1730213077309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n type Job = Box<dyn FnOnce() + Send + 'static>;\n \n pub struct Work {\n     id: usize,\n-    handler: thread::JoinHandle<()>,\n+    handler: ,\n }\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n@@ -50,7 +50,10 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        for\n+        for work in self.threads.iter() {\n+            println!(\"Shutting down thread {}\", work.id);\n+            work.handler.join().unwrap();\n+        }\n     }\n }\n"
+                },
+                {
+                    "date": 1730213086214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n type Job = Box<dyn FnOnce() + Send + 'static>;\n \n pub struct Work {\n     id: usize,\n-    handler: ,\n+    handler: Option<thread::JoinHandle<()>>,\n }\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n@@ -17,9 +17,9 @@\n                  job();\n              }\n         });\n         \n-        Work {id, handler}\n+        Work {id, }\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730213094209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n                  job();\n              }\n         });\n         \n-        Work {id, }\n+        Work {id, Same}\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730213102235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n                  job();\n              }\n         });\n         \n-        Work {id, Same}\n+        Work {id, Some}\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730213203159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n                  job();\n              }\n         });\n         \n-        Work {id, Some}\n+        Work {id, Some(handler), handler: todo!() }\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730213214470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n                  job();\n              }\n         });\n         \n-        Work {id, Some(handler), handler: todo!() }\n+        Work {id, Some(handler)}\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730213241500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n                  job();\n              }\n         });\n         \n-        Work {id, Some(handler)}\n+        Work {id, handlerSome(handler)}\n     }\n }\n \n pub struct ThreadPool {\n"
+                },
+                {
+                    "date": 1730213273443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n                  job();\n              }\n         });\n         \n-        Work {id, handlerSome(handler)}\n+        Work {id, handler: Some(handler)}\n     }\n }\n \n pub struct ThreadPool {\n@@ -52,8 +52,8 @@\n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n         for work in self.threads.iter() {\n             println!(\"Shutting down thread {}\", work.id);\n-            work.handler.join().unwrap();\n+            work.handler.t.join().unwrap();\n         }\n     }\n }\n"
+                },
+                {
+                    "date": 1730213282606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,9 @@\n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n         for work in self.threads.iter() {\n             println!(\"Shutting down thread {}\", work.id);\n-            work.handler.t.join().unwrap();\n+            if let work.handler.take()\n+            .join().unwrap();\n         }\n     }\n }\n"
+                },
+                {
+                    "date": 1730213287935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,10 @@\n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n         for work in self.threads.iter() {\n             println!(\"Shutting down thread {}\", work.id);\n-            if let work.handler.take()\n+            if let Some(handler) = work.handler.take() {\n+                handler.join().unwrap();\n             .join().unwrap();\n         }\n     }\n }\n"
+                },
+                {
+                    "date": 1730213293527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,8 @@\n         for work in self.threads.iter() {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n-            .join().unwrap();\n+            }\n         }\n     }\n }\n"
+                },
+                {
+                    "date": 1730213356220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        for work in self.threads.iter() {\n+        for work in self.threads. {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n             }\n"
+                },
+                {
+                    "date": 1730213376890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        for work in self.threads. {\n+        for work in self.threads.it {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n             }\n"
+                },
+                {
+                    "date": 1730213391548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        for work in self.threads.it {\n+        for work in mut self.threads.iter() {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n             }\n"
+                },
+                {
+                    "date": 1730213406648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        for work in mut self.threads.iter() {\n+        for work in mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n             }\n"
+                },
+                {
+                    "date": 1730213437931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        for work in mut self.threads {\n+        for work in mut self. {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n             }\n"
+                },
+                {
+                    "date": 1730213453229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        for work in mut self. {\n+        for work in &*mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n             }\n"
+                },
+                {
+                    "date": 1730214947290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        for work in &*mut self.threads {\n+        for work in self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n             }\n"
+                },
+                {
+                    "date": 1730214952427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        for work in self.threads {\n+        for work in &mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n             }\n"
+                },
+                {
+                    "date": 1730215129074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n+        d\n         for work in &mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n"
+                },
+                {
+                    "date": 1730215134401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        d\n+        drop(s);\n         for work in &mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n"
+                },
+                {
+                    "date": 1730215169853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,10 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        drop(s);\n+        drop(self.sender.t);\n+        \n         for work in &mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n"
+                },
+                {
+                    "date": 1730215175132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,8 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        drop(self.sender.t);\n         \n         for work in &mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n"
+                },
+                {
+                    "date": 1730215258903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n }\n \n pub struct ThreadPool {\n     threads: Vec<Work>,\n-    sender: mpsc::Sender<Job>,\n+    sender: ompsc::Sender<Job>,\n }\n \n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730215264729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n }\n \n pub struct ThreadPool {\n     threads: Vec<Work>,\n-    sender: ompsc::Sender<Job>,\n+    sender: Option<mpsc::Sender<Job>>,\n }\n \n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n"
+                },
+                {
+                    "date": 1730215284513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        \n+        drop(x);\n         for work in &mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n"
+                },
+                {
+                    "date": 1730215291223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n-        drop(x);\n+        drop(self.sender.take());\n         for work in &mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n"
+                },
+                {
+                    "date": 1730215304494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,15 +44,16 @@\n     where\n         F: FnOnce() + Send + 'static,\n     {\n         let job = Box::new(f);\n-        self.sender.send(job).unwrap(); \n+        self.sender..send(job).unwrap(); \n     }\n }\n \n impl Drop for ThreadPool  {\n     fn drop(&mut self) {\n         drop(self.sender.take());\n+\n         for work in &mut self.threads {\n             println!(\"Shutting down thread {}\", work.id);\n             if let Some(handler) = work.handler.take() {\n                 handler.join().unwrap();\n"
+                },
+                {
+                    "date": 1730215320490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     where\n         F: FnOnce() + Send + 'static,\n     {\n         let job = Box::new(f);\n-        self.sender..send(job).unwrap(); \n+        self.sender.as.send(job).unwrap(); \n     }\n }\n \n impl Drop for ThreadPool  {\n"
+                },
+                {
+                    "date": 1730215358737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     where\n         F: FnOnce() + Send + 'static,\n     {\n         let job = Box::new(f);\n-        self.sender.as.send(job).unwrap(); \n+        self.sender.as_ref()..send(job).unwrap(); \n     }\n }\n \n impl Drop for ThreadPool  {\n"
+                },
+                {
+                    "date": 1730215370407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,17 +36,17 @@\n         for id in 0..size {\n             threads.push(Work::new(id,Arc::clone(&receiver)));\n         }\n \n-        ThreadPool { threads, sender }\n+        ThreadPool { threads, s }\n     }\n \n     pub fn execute<F>(&self, f: F)\n     where\n         F: FnOnce() + Send + 'static,\n     {\n         let job = Box::new(f);\n-        self.sender.as_ref()..send(job).unwrap(); \n+        self.sender.as_ref().unwrap().send(job).unwrap(); \n     }\n }\n \n impl Drop for ThreadPool  {\n"
+                },
+                {
+                    "date": 1730215376840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         for id in 0..size {\n             threads.push(Work::new(id,Arc::clone(&receiver)));\n         }\n \n-        ThreadPool { threads, s }\n+        ThreadPool { threads, sender: Some(sender) }\n     }\n \n     pub fn execute<F>(&self, f: F)\n     where\n"
+                },
+                {
+                    "date": 1730215381980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n use std::sync::mpsc;\n+use std::sync::{Arc, Mutex};\n use std::thread;\n-use std::sync::{Arc, Mutex};\n \n type Job = Box<dyn FnOnce() + Send + 'static>;\n \n pub struct Work {\n@@ -11,15 +11,18 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-             let res = receiver.lock().unwrap();\n-             if let Ok(job) = res.recv() {\n-                 job();\n-             }\n+            let res = receiver.lock().unwrap();\n+            if let Ok(job) = res.recv() {\n+                job();\n+            }\n         });\n-        \n-        Work {id, handler: Some(handler)}\n+\n+        Work {\n+            id,\n+            handler: Some(handler),\n+        }\n     }\n }\n \n pub struct ThreadPool {\n@@ -30,27 +33,30 @@\n impl ThreadPool {\n     pub fn new(size: usize) -> Self {\n         let (sender, receiver) = mpsc::channel::<Job>();\n         let mut threads = Vec::with_capacity(size);\n-        \n+\n         let receiver = Arc::new(Mutex::new(receiver));\n         for id in 0..size {\n-            threads.push(Work::new(id,Arc::clone(&receiver)));\n+            threads.push(Work::new(id, Arc::clone(&receiver)));\n         }\n \n-        ThreadPool { threads, sender: Some(sender) }\n+        ThreadPool {\n+            threads,\n+            sender: Some(sender),\n+        }\n     }\n \n     pub fn execute<F>(&self, f: F)\n     where\n         F: FnOnce() + Send + 'static,\n     {\n         let job = Box::new(f);\n-        self.sender.as_ref().unwrap().send(job).unwrap(); \n+        self.sender.as_ref().unwrap().send(job).unwrap();\n     }\n }\n \n-impl Drop for ThreadPool  {\n+impl Drop for ThreadPool {\n     fn drop(&mut self) {\n         drop(self.sender.take());\n \n         for work in &mut self.threads {\n"
+                },
+                {
+                    "date": 1730215434412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,18 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            let res = receiver.lock().unwrap();\n-            if let Ok(job) = res.recv() {\n-                job();\n+            match message {\n+                Ok(job) => {\n+                    println!(\"Worker {id} got a job; executing.\");\n+\n+                    job();\n+                }\n+                Err(_) => {\n+                    println!(\"Worker {id} disconnected; shutting down.\");\n+                    break;\n+                }\n             }\n         });\n \n         Work {\n"
+                },
+                {
+                    "date": 1730215440158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n+            let res = receiver.lock().unwrap();\n             match message {\n                 Ok(job) => {\n                     println!(\"Worker {id} got a job; executing.\");\n \n"
+                },
+                {
+                    "date": 1730215471682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n impl Work {\n     pub fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Self {\n         let handler = thread::spawn(move || loop {\n-            let res = receiver.lock().unwrap();\n+            let message = receiver.lock().unwrap().recv();\n             match message {\n                 Ok(job) => {\n                     println!(\"Worker {id} got a job; executing.\");\n \n"
+                },
+                {
+                    "date": 1730215827049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n     where\n         F: FnOnce() + Send + 'static,\n     {\n         let job = Box::new(f);\n-        self.sender.as_ref().unwrap().send(job).unwrap();\n+        .unwrap().send(job).unwrap();\n     }\n }\n \n impl Drop for ThreadPool {\n"
+                },
+                {
+                    "date": 1730215838259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,8 +58,9 @@\n     where\n         F: FnOnce() + Send + 'static,\n     {\n         let job = Box::new(f);\n+        let sender_ref = self.sender.as_ref()\n         .unwrap().send(job).unwrap();\n     }\n }\n \n"
+                },
+                {
+                    "date": 1730215845376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,10 +58,10 @@\n     where\n         F: FnOnce() + Send + 'static,\n     {\n         let job = Box::new(f);\n-        let sender_ref = self.sender.as_ref()\n-        .unwrap().send(job).unwrap();\n+        let sender_ref = self.sender.as_ref();\n+        sender_ref.unwrap().send(job).unwrap();\n     }\n }\n \n impl Drop for ThreadPool {\n"
+                }
+            ],
+            "date": 1730208491181,
+            "name": "Commit-0",
+            "content": "pub "
+        }
+    ]
+}

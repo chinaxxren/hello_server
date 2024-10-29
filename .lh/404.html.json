@@ -1,0 +1,18 @@
+{
+    "sourceFile": "404.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1730207526495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1730207526495,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>你好!</title>\n  </head>\n  <body>\n    <h1>很抱歉!</h1>\n    <p>由于运维删库跑路，我们的数据全部丢失，总监也已经准备跑路，88</p>\n  </body>\n</html>\n"
+        }
+    ]
+}

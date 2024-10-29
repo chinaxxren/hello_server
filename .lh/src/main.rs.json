@@ -1,0 +1,454 @@
+{
+    "sourceFile": "src/main.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 109,
+            "patches": [
+                {
+                    "date": 1730206036160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1730206044383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+use\n \n fn main() {\n     println!(\"Hello, world!\");\n }\n"
+                },
+                {
+                    "date": 1730206050457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use\n+use std::\n \n fn main() {\n     println!(\"Hello, world!\");\n }\n"
+                },
+                {
+                    "date": 1730206055707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::\n+use std::net::T\n \n fn main() {\n     println!(\"Hello, world!\");\n }\n"
+                },
+                {
+                    "date": 1730206063664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::net::T\n+use std::net::TcpListener;\n \n fn main() {\n     println!(\"Hello, world!\");\n }\n"
+                },
+                {
+                    "date": 1730206069387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n use std::net::TcpListener;\n \n fn main() {\n-    println!(\"Hello, world!\");\n+   Tc\n }\n"
+                },
+                {
+                    "date": 1730206075144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n use std::net::TcpListener;\n \n fn main() {\n-   Tc\n+   TcpListener::bi\n }\n"
+                },
+                {
+                    "date": 1730206081595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n use std::net::TcpListener;\n \n fn main() {\n-   TcpListener::bi\n+   TcpListener::bind(\"addr\")\n }\n"
+                },
+                {
+                    "date": 1730206088739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n use std::net::TcpListener;\n \n fn main() {\n-   TcpListener::bind(\"addr\")\n+   TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n }\n"
+                },
+                {
+                    "date": 1730206094764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n use std::net::TcpListener;\n \n fn main() {\n-   TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n+   let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n }\n"
+                },
+                {
+                    "date": 1730206107729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n use std::net::TcpListener;\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n+   for stream\n }\n"
+                },
+                {
+                    "date": 1730206113275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n use std::net::TcpListener;\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n-   for stream\n+   for stream in listener.incoming() {\n }\n"
+                },
+                {
+                    "date": 1730206123774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,9 @@\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n+       let stream = stream.unwrap();\n+       println!(\"Connection established!\");\n+   }\n+   }\n }\n"
+                },
+                {
+                    "date": 1730206151738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,7 @@\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n        println!(\"Connection established!\");\n    }\n-   }\n }\n+\n+fn handle_\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206160636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,7 @@\n        println!(\"Connection established!\");\n    }\n }\n \n-fn handle_\n\\ No newline at end of file\n+fn handle_connection(stream: TcpStream) {\n+    \n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206168329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,7 +7,7 @@\n        println!(\"Connection established!\");\n    }\n }\n \n-fn handle_connection(stream: TcpStream) {\n+fn handle_connection(mut stream: TcpStream) {\n     \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206206816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::net::TcpListener;\n+use std::net::{TcpListener;\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n"
+                },
+                {
+                    "date": 1730206214232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::net::{TcpListener;\n+use std::net::{TcpListener,TcpStream};\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n"
+                },
+                {
+                    "date": 1730206230756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,6 @@\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n-    \n+    let buf_reader\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206238811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::net::{TcpListener,TcpStream};\n+use std::{io::BufReader, net::{TcpListener,TcpStream}};\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n@@ -8,6 +8,6 @@\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n-    let buf_reader\n+    let buf_reader = BufReader::new(&stream);\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206244258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,5 +9,6 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n+    let h\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206249827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,10 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let h\n+    let http_request: Vec<_> = buf_reader\n+        .lines()\n+        .map(|result| result.unwrap())\n+        .take_while(|line| !line.is_empty())\n+        .collect();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206264979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,6 @@\n         .lines()\n         .map(|result| result.unwrap())\n         .take_while(|line| !line.is_empty())\n         .collect();\n+    \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206270711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,6 @@\n         .lines()\n         .map(|result| result.unwrap())\n         .take_while(|line| !line.is_empty())\n         .collect();\n-    \n+    println!(\"HTTP Request: \\n{}\", http_request.join(\"\\n\"));\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206353400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,7 @@\n         .lines()\n         .map(|result| result.unwrap())\n         .take_while(|line| !line.is_empty())\n         .collect();\n+    \n     println!(\"HTTP Request: \\n{}\", http_request.join(\"\\n\"));\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206363476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::{io::BufReader, net::{TcpListener,TcpStream}};\n+use std::{io::{BufRead, BufReader}, net::{TcpListener,TcpStream}};\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n"
+                },
+                {
+                    "date": 1730206574981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n-       println!(\"Connection established!\");\n+       h;\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n"
+                },
+                {
+                    "date": 1730206580152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n-       h;\n+       handle_connection(stream);\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n"
+                },
+                {
+                    "date": 1730206638307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,6 +15,7 @@\n         .map(|result| result.unwrap())\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n+    let respon\n     println!(\"HTTP Request: \\n{}\", http_request.join(\"\\n\"));\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206644628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,7 @@\n         .map(|result| result.unwrap())\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n-    let respon\n+    let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     println!(\"HTTP Request: \\n{}\", http_request.join(\"\\n\"));\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206652861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,6 +16,7 @@\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n+    st\n     println!(\"HTTP Request: \\n{}\", http_request.join(\"\\n\"));\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206662298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,8 @@\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n-    st\n+    stream.write_all(reponse.as_bytes()).unwrap();\n+    \n     println!(\"HTTP Request: \\n{}\", http_request.join(\"\\n\"));\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206677039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::{io::{BufRead, BufReader}, net::{TcpListener,TcpStream}};\n+use std::{io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}};\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n"
+                },
+                {
+                    "date": 1730206720931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,7 +17,5 @@\n         .collect();\n     \n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     stream.write_all(reponse.as_bytes()).unwrap();\n-    \n-    println!(\"HTTP Request: \\n{}\", http_request.join(\"\\n\"));\n-}\n\\ No newline at end of file\n+    }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206726424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,5 +17,5 @@\n         .collect();\n     \n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     stream.write_all(reponse.as_bytes()).unwrap();\n-    }\n\\ No newline at end of file\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206873096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,9 @@\n         .map(|result| result.unwrap())\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n+    l\n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     stream.write_all(reponse.as_bytes()).unwrap();\n+    stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206880713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         .map(|result| result.unwrap())\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n-    l\n+    let status_l\n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206887738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         .map(|result| result.unwrap())\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n-    let status_l\n+    let status_line = \"\"\n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206893061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         .map(|result| result.unwrap())\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n-    let status_line = \"\"\n+    let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206905617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n+    let content\n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206912630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::{io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}};\n+use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}};\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n@@ -16,9 +16,9 @@\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n-    let content\n+    let content = fs::read_to_string(\"index.html\").unwrap();\n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206919743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n         .collect();\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"index.html\").unwrap();\n+    let len\n     let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206952215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         .collect();\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"index.html\").unwrap();\n-    let len\n-    let reponse = \"HTTP/1.1 200 OK\\r\\n\\r\\nHello World!\";\n+    let length = content.len();\n+    let reponse = ;\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206959194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,8 @@\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"index.html\").unwrap();\n     let length = content.len();\n-    let reponse = ;\n+    let reponse = format!();\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730206973058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,8 @@\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"index.html\").unwrap();\n     let length = content.len();\n-    let reponse = format!();\n+    let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207016189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n-    let content = fs::read_to_string(\"index.html\").unwrap();\n+    let content = fs::read_to_string(\"hel.html\").unwrap();\n     let length = content.len();\n     let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n"
+                },
+                {
+                    "date": 1730207021664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         .take_while(|line| !line.is_empty())\n         .collect();\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n-    let content = fs::read_to_string(\"hel.html\").unwrap();\n+    let content = fs::read_to_string(\"hello.html\").unwrap();\n     let length = content.len();\n     let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n     stream.write_all(reponse.as_bytes()).unwrap();\n     stream.flush().unwrap();\n"
+                },
+                {
+                    "date": 1730207148487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,9 @@\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let http_request: Vec<_> = buf_reader\n-        .lines()\n-        .map(|result| result.unwrap())\n-        .take_while(|line| !line.is_empty())\n-        .collect();\n+       \n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n     let length = content.len();\n"
+                },
+                {
+                    "date": 1730207156024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let http_request: Vec<_> = buf_reader\n+    let http_request: Vec<_> = buf_reader.l\n        \n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207170400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let http_request: Vec<_> = buf_reader.l\n+    let http_request = buf_reader.lines()\n        \n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207189693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let http_request = buf_reader.lines()\n+    let http_request = unsafe { buf_reader.lines() }\n        \n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207206936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let http_request = unsafe { buf_reader.lines() }\n+    let http_request = \n        \n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207213474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let http_request = \n+    let http_request = buf_reader.l\n        \n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207218558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let http_request = buf_reader.l\n+    let http_request = buf_reader.lines().next().unwrap().unwrap();\n        \n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207224325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let http_request = buf_reader.lines().next().unwrap().unwrap();\n+    let er = buf_reader.lines().next().unwrap().unwrap();\n        \n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207231507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let er = buf_reader.lines().next().unwrap().unwrap();\n+    let request_line   = buf_reader.lines().next().unwrap().unwrap();\n        \n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207237033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let request_line   = buf_reader.lines().next().unwrap().unwrap();\n-       \n+    let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n+    \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n     let length = content.len();\n     let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n"
+                },
+                {
+                    "date": 1730207245617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n     \n+    \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n     let length = content.len();\n     let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n"
+                },
+                {
+                    "date": 1730207252807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n+    if \n     \n-    \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n     let length = content.len();\n     let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n"
+                },
+                {
+                    "date": 1730207260490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n-    if \n+    if request_line.s\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n     let length = content.len();\n"
+                },
+                {
+                    "date": 1730207272978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,13 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n-    if request_line.s\n+    if request_line.starts_with(\"GET / HTTP/1.1\") {\n+        \n+    } else {\n+        \n+    }\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n     let length = content.len();\n"
+                },
+                {
+                    "date": 1730207278155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     \n     if request_line.starts_with(\"GET / HTTP/1.1\") {\n         \n     } else {\n-        \n+        println!(\"Unknown request: {}\", request_line);\n     }\n     \n     let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n     let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207287627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,6 @@\n     } else {\n         println!(\"Unknown request: {}\", request_line);\n     }\n     \n-    let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n-    let content = fs::read_to_string(\"hello.html\").unwrap();\n-    let length = content.len();\n-    let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n-    stream.write_all(reponse.as_bytes()).unwrap();\n-    stream.flush().unwrap();\n+   \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207409968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,16 @@\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n     if request_line.starts_with(\"GET / HTTP/1.1\") {\n-        \n+        let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n+        let content = fs::read_to_string(\"hello.html\").unwrap();\n+        let length = content.len();\n+        let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n+        stream.write_all(reponse.as_bytes()).unwrap();\n+        stream.flush().unwrap();\n     } else {\n-        println!(\"Unknown request: {}\", request_line);\n+       \n     }\n     \n    \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207415855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,10 @@\n         let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n         stream.write_all(reponse.as_bytes()).unwrap();\n         stream.flush().unwrap();\n     } else {\n-       \n+        let status_line = \"HTTP/1.1 404 NOT FOUND\\r\\n\";\n+        stream.write_all(status_line.as_bytes()).unwrap\n     }\n     \n    \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207423976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n         stream.write_all(reponse.as_bytes()).unwrap();\n         stream.flush().unwrap();\n     } else {\n         let status_line = \"HTTP/1.1 404 NOT FOUND\\r\\n\";\n+        let con\n         stream.write_all(status_line.as_bytes()).unwrap\n     }\n     \n    \n"
+                },
+                {
+                    "date": 1730207438484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,10 @@\n         stream.write_all(reponse.as_bytes()).unwrap();\n         stream.flush().unwrap();\n     } else {\n         let status_line = \"HTTP/1.1 404 NOT FOUND\\r\\n\";\n-        let con\n+        let content = fs::read_to_string(\"404.html\").unwrap();\n+        \n         stream.write_all(status_line.as_bytes()).unwrap\n     }\n     \n    \n"
+                },
+                {
+                    "date": 1730207456324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,10 @@\n         stream.flush().unwrap();\n     } else {\n         let status_line = \"HTTP/1.1 404 NOT FOUND\\r\\n\";\n         let content = fs::read_to_string(\"404.html\").unwrap();\n-        \n+        let length = content.len();\n+        let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n         stream.write_all(status_line.as_bytes()).unwrap\n     }\n     \n    \n"
+                },
+                {
+                    "date": 1730207471471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,9 @@\n         let status_line = \"HTTP/1.1 404 NOT FOUND\\r\\n\";\n         let content = fs::read_to_string(\"404.html\").unwrap();\n         let length = content.len();\n         let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n+        \n         stream.write_all(status_line.as_bytes()).unwrap\n     }\n     \n    \n"
+                },
+                {
+                    "date": 1730207479340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,10 @@\n         let status_line = \"HTTP/1.1 404 NOT FOUND\\r\\n\";\n         let content = fs::read_to_string(\"404.html\").unwrap();\n         let length = content.len();\n         let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n-        \n-        stream.write_all(status_line.as_bytes()).unwrap\n+        stream.write_all(reponse.as_bytes()).unwrap();\n+        p\n     }\n     \n    \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207484420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,8 @@\n         let content = fs::read_to_string(\"404.html\").unwrap();\n         let length = content.len();\n         let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n         stream.write_all(reponse.as_bytes()).unwrap();\n-        p\n     }\n     \n    \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207491149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,5 @@\n         let length = content.len();\n         let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n         stream.write_all(reponse.as_bytes()).unwrap();\n     }\n-    \n-   \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207596029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,15 +11,16 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n+    if \n+    \n     if request_line.starts_with(\"GET / HTTP/1.1\") {\n         let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n         let content = fs::read_to_string(\"hello.html\").unwrap();\n         let length = content.len();\n         let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n         stream.write_all(reponse.as_bytes()).unwrap();\n-        stream.flush().unwrap();\n     } else {\n         let status_line = \"HTTP/1.1 404 NOT FOUND\\r\\n\";\n         let content = fs::read_to_string(\"404.html\").unwrap();\n         let length = content.len();\n"
+                },
+                {
+                    "date": 1730207601912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n-    if \n+    let (st)\n     \n     if request_line.starts_with(\"GET / HTTP/1.1\") {\n         let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n         let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207607611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n-    let (st)\n+    let (status_line, headers)\n     \n     if request_line.starts_with(\"GET / HTTP/1.1\") {\n         let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n         let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207613499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n-    let (status_line, headers)\n+    let (status_line, filename)\n     \n     if request_line.starts_with(\"GET / HTTP/1.1\") {\n         let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n         let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207618799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n-    let (status_line, filename)\n+    let (status_line, filename) = if request_line\n     \n     if request_line.starts_with(\"GET / HTTP/1.1\") {\n         let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n         let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207629871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n-    let (status_line, filename) = if request_line\n+    let (status_line, filename) = if request_line == \"GET / HTTP/1.1\" {\n+        (\"HTTP/1.1 200 OK\", \"hello.html\")\n+    } else\n     \n     if request_line.starts_with(\"GET / HTTP/1.1\") {\n         let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n         let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207637497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,12 @@\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n     let (status_line, filename) = if request_line == \"GET / HTTP/1.1\" {\n         (\"HTTP/1.1 200 OK\", \"hello.html\")\n-    } else\n+    } else {\n+        (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n+    };\n+    }\n     \n     if request_line.starts_with(\"GET / HTTP/1.1\") {\n         let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n         let content = fs::read_to_string(\"hello.html\").unwrap();\n"
+                },
+                {
+                    "date": 1730207658456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,20 +16,7 @@\n         (\"HTTP/1.1 200 OK\", \"hello.html\")\n     } else {\n         (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n     };\n-    }\n     \n-    if request_line.starts_with(\"GET / HTTP/1.1\") {\n-        let status_line = \"HTTP/1.1 200 OK\\r\\n\";\n-        let content = fs::read_to_string(\"hello.html\").unwrap();\n-        let length = content.len();\n-        let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n-        stream.write_all(reponse.as_bytes()).unwrap();\n-    } else {\n-        let status_line = \"HTTP/1.1 404 NOT FOUND\\r\\n\";\n-        let content = fs::read_to_string(\"404.html\").unwrap();\n-        let length = content.len();\n-        let reponse = format!(\"{status_line}\\r\\nContent-Length: {length}\\r\\n\\r\\n{content}\");\n-        stream.write_all(reponse.as_bytes()).unwrap();\n-    }\n+    \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207663739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,6 +17,6 @@\n     } else {\n         (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n     };\n     \n-    \n+    let co\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207671359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,6 +17,6 @@\n     } else {\n         (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n     };\n     \n-    let co\n+    let content\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207680249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,6 +17,7 @@\n     } else {\n         (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n     };\n     \n-    let content\n+    let contents = fs::read_to_string(filename).unwrap();\n+    let response = format!(\"{}{}\\r\\n\\r\\n{}\", status_line, contents, \"\\r\\n\");\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207687968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,5 +19,6 @@\n     };\n     \n     let contents = fs::read_to_string(filename).unwrap();\n     let response = format!(\"{}{}\\r\\n\\r\\n{}\", status_line, contents, \"\\r\\n\");\n+    stream.write(response.as_bytes()).unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207807142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,8 @@\n         (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n     };\n     \n     let contents = fs::read_to_string(filename).unwrap();\n+    pri\n     let response = format!(\"{}{}\\r\\n\\r\\n{}\", status_line, contents, \"\\r\\n\");\n     stream.write(response.as_bytes()).unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207814105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,8 @@\n         (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n     };\n     \n     let contents = fs::read_to_string(filename).unwrap();\n-    pri\n+    println!(\"\")\n     let response = format!(\"{}{}\\r\\n\\r\\n{}\", status_line, contents, \"\\r\\n\");\n     stream.write(response.as_bytes()).unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207819863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,8 @@\n         (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n     };\n     \n     let contents = fs::read_to_string(filename).unwrap();\n-    println!(\"\")\n+    println!(\"Request: {}\", request_line);\n     let response = format!(\"{}{}\\r\\n\\r\\n{}\", status_line, contents, \"\\r\\n\");\n     stream.write(response.as_bytes()).unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207826504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,8 @@\n         (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n     };\n     \n     let contents = fs::read_to_string(filename).unwrap();\n-    println!(\"Request: {}\", request_line);\n+    println!(\"Request: {}\", contents);\n     let response = format!(\"{}{}\\r\\n\\r\\n{}\", status_line, contents, \"\\r\\n\");\n     stream.write(response.as_bytes()).unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730207889341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,6 +20,6 @@\n     \n     let contents = fs::read_to_string(filename).unwrap();\n     println!(\"Request: {}\", contents);\n     let response = format!(\"{}{}\\r\\n\\r\\n{}\", status_line, contents, \"\\r\\n\");\n-    stream.write(response.as_bytes()).unwrap();\n+    stream.w(response.as_bytes()).unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208147387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n+       \n        handle_connection(stream);\n    }\n }\n \n@@ -20,6 +21,6 @@\n     \n     let contents = fs::read_to_string(filename).unwrap();\n     println!(\"Request: {}\", contents);\n     let response = format!(\"{}{}\\r\\n\\r\\n{}\", status_line, contents, \"\\r\\n\");\n-    stream.w(response.as_bytes()).unwrap();\n+    stream.write_all(response.as_bytes()).unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730208155594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n-       \n+       th\n        handle_connection(stream);\n    }\n }\n \n"
+                },
+                {
+                    "date": 1730208162255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n-use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}};\n+use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}, thread};\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n-       th\n+       thread::spawn(move || {\n+        \n+       }\n        handle_connection(stream);\n    }\n }\n \n"
+                },
+                {
+                    "date": 1730208169732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,10 @@\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n        thread::spawn(move || {\n-        \n+        handle_connection(stream);\n        }\n-       handle_connection(stream);\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n"
+                },
+                {
+                    "date": 1730208179054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n        thread::spawn(move || {\n-        handle_connection(stream);\n-       }\n+            handle_connection(stream);\n+       }；\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n"
+                },
+                {
+                    "date": 1730208199274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n        thread::spawn(move || {\n             handle_connection(stream);\n-       }；\n+       });\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n"
+                },
+                {
+                    "date": 1730208359036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n-       thread::spawn(move || {\n+       thread::spawn( || {\n             handle_connection(stream);\n        });\n    }\n }\n"
+                },
+                {
+                    "date": 1730211568842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n        thread::spawn( || {\n-            handle_connection(stream);\n+            \n        });\n    }\n }\n \n"
+                },
+                {
+                    "date": 1730211575618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,9 @@\n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n-       thread::spawn( || {\n-            \n-       });\n+       Th\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n"
+                },
+                {
+                    "date": 1730211583095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}, thread};\n \n+use hello_server::ThreadPool;\n+\n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n-       Th\n+       ThreadPool\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n"
+                },
+                {
+                    "date": 1730211588334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,11 @@\n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n    for stream in listener.incoming() {\n        let stream = stream.unwrap();\n-       ThreadPool\n+       ThreadPool::new(4).execute(|| {\n+           handle_connection(stream);\n+       });\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n"
+                },
+                {
+                    "date": 1730211605977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}, thread};\n+use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}};\n \n use hello_server::ThreadPool;\n \n fn main() {\n"
+                },
+                {
+                    "date": 1730215597851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,5 +25,6 @@\n     let contents = fs::read_to_string(filename).unwrap();\n     println!(\"Request: {}\", contents);\n     let response = format!(\"{}{}\\r\\n\\r\\n{}\", status_line, contents, \"\\r\\n\");\n     stream.write_all(response.as_bytes()).unwrap();\n+    stream.flush().unwrap();\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1730215628198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,16 @@\n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n     let request_line = buf_reader.lines().next().unwrap().unwrap();\n     \n-    let (status_line, filename) = if request_line == \"GET / HTTP/1.1\" {\n+    let get = b\"GET / HTTP/1.1\\r\\n\";\n+    let sleep = b\"GET /sleep HTTP/1.1\\r\\n\";\n+\n+    let (status_line, filename) = if buffer.starts_with(get) {\n         (\"HTTP/1.1 200 OK\", \"hello.html\")\n+    } else if buffer.starts_with(sleep) {\n+        thread::sleep(Duration::from_secs(5));\n+        (\"HTTP/1.1 200 OK\", \"hello.html\")\n     } else {\n         (\"HTTP/1.1 404 NOT FOUND\", \"404.html\")\n     };\n     \n"
+                },
+                {
+                    "date": 1730215643938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}};\n+use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}, thread};\n \n use hello_server::ThreadPool;\n \n fn main() {\n"
+                },
+                {
+                    "date": 1730215650595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}, thread};\n+use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}, thread, time::Duration};\n \n use hello_server::ThreadPool;\n \n fn main() {\n"
+                },
+                {
+                    "date": 1730215664857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let request_line = buf_reader.lines().next().unwrap().unwrap();\n+    let buffer = buf_reader.lines().next().unwrap().unwrap();\n     \n     let get = b\"GET / HTTP/1.1\\r\\n\";\n     let sleep = b\"GET /sleep HTTP/1.1\\r\\n\";\n \n"
+                },
+                {
+                    "date": 1730215703647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,10 @@\n }\n \n fn handle_connection(mut stream: TcpStream) {\n     let buf_reader = BufReader::new(&stream);\n-    let buffer = buf_reader.lines().next().unwrap().unwrap();\n+    let mut buffer = [0; 1024];\n+    stream.read(&mut buffer).unwrap();\n     \n     let get = b\"GET / HTTP/1.1\\r\\n\";\n     let sleep = b\"GET /sleep HTTP/1.1\\r\\n\";\n \n"
+                },
+                {
+                    "date": 1730215710736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n-    let buf_reader = BufReader::new(&stream);\n+    \n     let mut buffer = [0; 1024];\n     stream.read(&mut buffer).unwrap();\n     \n     let get = b\"GET / HTTP/1.1\\r\\n\";\n"
+                },
+                {
+                    "date": 1730215765659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}, thread, time::Duration};\n-\n+use std::io::prelude::*;\n use hello_server::ThreadPool;\n \n fn main() {\n    let listener = TcpListener::bind(\"127.0.0.1:8080\").unwrap();\n@@ -12,9 +12,8 @@\n    }\n }\n \n fn handle_connection(mut stream: TcpStream) {\n-    \n     let mut buffer = [0; 1024];\n     stream.read(&mut buffer).unwrap();\n     \n     let get = b\"GET / HTTP/1.1\\r\\n\";\n"
+                },
+                {
+                    "date": 1730215778402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-use std::{fs, io::{BufRead, BufReader, Write}, net::{TcpListener,TcpStream}, thread, time::Duration};\n+use std::{fs, io::Write}, net::{TcpListener,TcpStream}, thread, time::Duration};\n use std::io::prelude::*;\n use hello_server::ThreadPool;\n \n fn main() {\n"
+                }
+            ],
+            "date": 1730206036160,
+            "name": "Commit-0",
+            "content": "\nfn main() {\n    println!(\"Hello, world!\");\n}\n"
+        }
+    ]
+}
